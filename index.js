@@ -1,16 +1,8 @@
-import {
-  EdgeFeatureHubConfig,
-  ClientContext,
-  Readyness,
-} from 'featurehub-javascript-client-sdk';
 import fetch from 'node-fetch';
 
 if (!globalThis.fetch) {
 	globalThis.fetch = fetch;
 }
-
-const buildEnvRe = /^build_env/i;
-
 
 function _buildRequest(edgeUrl, apiKey, userkey, branch) {
   const url = `${edgeUrl}?sdkUrl=${apiKey}`;
