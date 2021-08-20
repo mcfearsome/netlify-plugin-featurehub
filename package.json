@@ -1,0 +1,13 @@
+{
+  "name": "netlify-plugin-featurehub",
+  "version": "1.0.0",
+  "description": "netlify pre-build plugin to get values from featurehub for a build user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

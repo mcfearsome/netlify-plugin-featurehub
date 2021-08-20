@@ -1,0 +1,13 @@
+---
+name: netlify-plugin-featurehub
+inputs:
+- name: userkey
+  description: The user key for the featurehub user
+- name: edgeUrl
+  description: The featurehub endpoint
+- name: sdkUrl
+  description: Essentially the API Key
+- name: targetPrefix
+  description: The prefix of feature keys to be used as env vars
+- name: prefixReplace
+  description: Replacement for target prefix when setting as env var
