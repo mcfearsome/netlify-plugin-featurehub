@@ -24,10 +24,11 @@ function _buildRequest(edgeUrl, apiKey, userkey, branch) {
 }
 
 module.exports = {
-  onPreBuild: async function ({ netlifyConfig, inputs }) {
+  onPreBuild: async ({ netlifyConfig, inputs }) => {
     const buildEnvRe = new RegExp(`^${inputs.targetPrefix}`, 'i');
     const prefixReplace = inputs.prefixReplace;
     const _req = _buildRequest(inputs.edgeUrl, inputs.sdkUrl, inputs.userkey, netlifyConfig.branch)
+    console.log(`Fetching Features for userkey=${inputs.userkey} branch=${netlifyConfig.branch}`)
     const response = await fetch(_req[0], _req[1]);
     const data = await response.json();
     data.forEach(function(item) {
@@ -35,9 +36,11 @@ module.exports = {
         if (!(buildEnvRe.test(feature.key)) || !(value in feature)) {
           return
         }
+        console.log(`Applying Feature ${feature.key}`)
         let env_name = feature.key.replace(buildEnvRe, prefixReplace);
         process.env[env_name.toUpperCase()] = feature.value;
       });
     });
+    console.log('Finished Setting Features')
   },
 }
