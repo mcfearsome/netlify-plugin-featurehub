@@ -1,0 +1,3 @@
+# Netlify Build Plugin for Featurehub
+
+Some assumptions are made about the structure of features but it is expected that each site would have a distinct "Build User" that is used as the userkey to help targetting. Also the current branch is also sent with the intent it is used as a custom filter. Finally only features with a key that matches a prefix will be processed and set as env vars in the onPreBuild portion of the build. In theory these env vars can be used as switches during rendering.
